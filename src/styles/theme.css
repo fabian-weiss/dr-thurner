@@ -1,0 +1,93 @@
+@theme {
+  /* PRIMARY COLOR (Charcoal) */
+  --color-primary: #03045e;
+  --color-primary-hover: #2e5d9f;
+  --color-primary-pressed: #2f2f35;
+  --color-primary-disabled: rgba(24, 24, 27, 0.5);
+
+  /* SECONDARY COLOR (Muted Warm Gray) */
+  --color-secondary: #ffffff;
+  --color-secondary-hover: #f2f2fa;
+  --color-secondary-pressed: #77757b;
+  --color-secondary-disabled: rgba(163, 159, 164, 0.5);
+
+  /* ACCENT COLOR (Vibrant Electric Blue) */
+  --color-accent: #3b82f6; /* Tailwind's blue-500 */
+  --color-accent-hover: #2563eb; /* blue-600 */
+  --color-accent-pressed: #1d4ed8; /* blue-700 */
+  --color-accent-disabled: rgba(59, 130, 246, 0.5);
+
+  /* LIGHT / DARK TEXT */
+  --color-text-light: #ffffff;
+  --color-text-dark: #132f55;
+  --color-text-muted: #797979;
+
+  /* LIGHT / DARK BACKGROUND */
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #f0faff;
+
+  /* ERROR COLORS */
+  --color-error: #b22222;
+  --color-error-hover: #8b0000;
+  --color-error-pressed: #5a0000;
+  --color-error-disabled: rgba(178, 34, 34, 0.5);
+
+  /* TRANSPARENT OVERLAY */
+  --color-overlay: rgba(10, 20, 50, 0.075);
+
+  /* BORDER COLORS */
+  --color-border: #e5e7eb; /* Tailwind's gray-500 */
+
+  /* SHADOWS */
+  --shadow-primary: 0px 2px 8px rgba(19, 47, 85, 0.02),
+    0px 12px 32px rgba(19, 47, 85, 0.12);
+  --shadow-secondary: 0px 2px 8px rgba(213, 47, 137, 0.02),
+    0px 12px 32px rgba(213, 47, 137, 0.12);
+  --shadow-accent: 0px 2px 8px rgba(211, 160, 92, 0.02),
+    0px 12px 32px rgba(211, 160, 92, 0.12);
+  --shadow-none: none;
+
+  /* SPACINGS */
+  --navbar-height: 120px;
+
+  /* FONT SIZES */
+  /* Base font size for paragraphs */
+  --font-size-p: 1rem; /* 16px */
+
+  /* Perfect Fourth (desktop, reduced) → Minor Third (mobile) */
+  --font-size-h6: clamp(0.875rem, 0.4vw + 0.78rem, 1rem); /* 14px → ~16px */
+  --font-size-h5: clamp(1rem, 0.6vw + 0.9rem, 1.25rem); /* 16px → ~20px */
+  --font-size-h4: clamp(1.125rem, 0.9vw + 1rem, 1.625rem); /* 18px → ~26px */
+  --font-size-h3: clamp(1.375rem, 1.3vw + 1.1rem, 2rem); /* 22px → ~32px */
+  --font-size-h2: clamp(1.625rem, 2vw + 1.1rem, 2.875rem); /* 26px → ~46px */
+  --font-size-h1: clamp(2rem, 3vw + 1.2rem, 3.75rem); /* 32px → ~60px */
+
+  /* Line heights */
+  --line-height-h6: 1.5;
+  --line-height-h5: 1.4;
+  --line-height-h4: 1.35;
+  --line-height-h3: 1.25;
+  --line-height-h2: 1.15;
+  --line-height-h1: 1.05;
+
+  /* Letter spacing (tracking) */
+  --tracking-h6: -0.002em;
+  --tracking-h5: -0.003em;
+  --tracking-h4: -0.006em;
+  --tracking-h3: -0.012em;
+  --tracking-h2: -0.016em;
+  --tracking-h1: -0.02em;
+
+  /* BREAKPOINTS */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 450px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ADDITIONAL STYLES */
+  --radius-5xl: 3rem;
+  --radius-6xl: 4rem;
+  --button-radius: 4px;
+}

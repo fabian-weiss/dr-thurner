@@ -1,0 +1,48 @@
+@layer components {
+  .fw-content-wrapper {
+    @apply px-7 md:px-15 mx-auto;
+    max-width: 1400px;
+  }
+  .fw-content-wrapper__narrow {
+    @apply px-7 md:px-15 mx-auto;
+    max-width: 1024px;
+  }
+  .fw-py-section {
+    @apply py-15 lg:py-25;
+  }
+  .fw-my-section {
+    @apply my-20 lg:my-30;
+  }
+  .fw-px-section {
+    @apply px-7 md:px-15 mx-auto;
+  }
+}
+
+@layer utilities {
+  @keyframes dot-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.8);
+    }
+  }
+  @keyframes dot-wave {
+    0% {
+      transform: scale(0.5);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  .animate-dot-pulse {
+    animation: dot-pulse 2s ease-in infinite;
+  }
+  .animate-dot-wave {
+    animation: dot-wave 2s linear infinite;
+  }
+}

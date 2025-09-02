@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import "./theme.css";
+@import "./utilities.css";
+@import "./buttons.css";
+@import "./typography.css";
+
+@source inline('{sm:,md:,lg:,xl:,}col-span-{1..6}');
+@source inline('{sm:,md:,lg:,xl:,}row-span-{1..6}');
+
+:root {
+  --background: #ffffff;
+  --foreground: #132f55;
+  --color-border: #e5e7eb; /* Tailwind's gray-500 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #132f55;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: white;
+  color: var(--foreground);
+  /* height: 100dvh; */
+  /* allow hyphens */
+  /* hyphens: auto; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body.fw-dialog-open,
+html.fw-dialog-open {
+  overflow-y: hidden;
+}

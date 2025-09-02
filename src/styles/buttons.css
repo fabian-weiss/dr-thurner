@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer components {
+  .button {
+    @apply inline-flex items-center justify-center cursor-pointer transition-colors duration-200 uppercase;
+    border-radius: var(--button-radius-top-left, var(--button-radius))
+      var(--button-radius-top-right, var(--button-radius))
+      var(--button-radius-bottom-right, var(--button-radius))
+      var(--button-radius-bottom-left, var(--button-radius));
+  }
+
+  .button--lg {
+    @apply h-12 py-3 px-6 text-base;
+  }
+  .button--sm {
+    @apply h-8 px-3 text-sm;
+  }
+
+  .button--primary {
+    @apply bg-primary text-secondary;
+  }
+  .button--primary:hover {
+    @apply bg-primary-hover;
+  }
+  .button--primary.is-pressed {
+    @apply bg-primary-pressed;
+  }
+  .button--primary.is-disabled {
+    @apply bg-primary-disabled cursor-not-allowed;
+  }
+  .button--primary.is-loading {
+    @apply bg-primary cursor-wait;
+  }
+
+  .button--secondary {
+    @apply bg-secondary text-primary;
+  }
+  .button--secondary:hover {
+    @apply bg-secondary-hover;
+  }
+  .button--secondary.is-pressed {
+    @apply text-accent-pressed border border-accent-pressed;
+  }
+  .button--secondary.is-disabled {
+    @apply bg-secondary-disabled cursor-not-allowed;
+  }
+  .button--secondary.is-loading {
+    @apply text-accent border border-accent cursor-wait;
+  }
+
+  .button--tertiary {
+    @apply bg-transparent text-secondary;
+  }
+  .button--tertiary:hover {
+    @apply text-secondary-hover;
+  }
+  .button--tertiary.is-pressed {
+    @apply text-secondary-pressed;
+  }
+  .button--tertiary.is-disabled {
+    @apply text-secondary-disabled cursor-not-allowed;
+  }
+  .button--tertiary.is-loading {
+    @apply text-secondary cursor-wait;
+  }
+
+  .button--ghost {
+    @apply bg-transparent text-primary;
+  }
+
+  .button--ghost.is-disabled {
+    @apply text-secondary-disabled cursor-not-allowed;
+  }
+  .button--ghost.is-loading {
+    @apply text-secondary cursor-wait;
+  }
+
+  .button--outlined {
+    @apply bg-transparent border border-secondary text-secondary;
+  }
+  .button--outlined:hover {
+    @apply bg-secondary text-primary;
+  }
+  .button--outlined.is-disabled {
+    @apply bg-primary-disabled cursor-not-allowed;
+  }
+  .button--outlined.is-loading {
+    @apply bg-secondary cursor-wait;
+  }
+
+  .button--link {
+    @apply bg-transparent text-text-light p-0;
+  }
+  .button--link:hover {
+    @apply text-secondary-hover;
+  }
+  .button--link.is-pressed {
+    @apply text-accent-pressed;
+  }
+  .button--link.is-disabled {
+    @apply cursor-not-allowed text-secondary-disabled;
+  }
+  .button--link.is-loading {
+    @apply cursor-wait;
+  }
+}
