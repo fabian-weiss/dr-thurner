@@ -4,4 +4,5 @@ export type CompanyInfoType = {
   city: string;
   email?: string;
   phone?: string;
+  mobile?: string;
 };

@@ -16,11 +16,6 @@ async function Impressum() {
         imageSrc: data.imageSrc,
         imageAlt: data.imageAlt,
       }}
-      logo={{
-        src: "/das_doppler/logo.svg",
-        alt: "Logo das Bock",
-        isDark: false,
-      }}
       className="min-h-screen h-auto"
       html={data.contentHtml}
     />

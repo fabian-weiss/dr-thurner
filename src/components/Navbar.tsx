@@ -17,6 +17,7 @@ import { useTranslations } from "next-intl";
 import { useCloseMenuOnDesktop } from "@/hooks/useCloseMenuOnDesktop";
 import { SocialsType } from "@/types/SocialsType";
 import { Link, usePathname } from "@/i18n/navigation";
+import Button from "./Button";
 
 export type NavbarProps = {
   appearance?: NavbarAppearance;
@@ -47,26 +48,41 @@ export default function Navbar({
   className,
   burgerButtonClassName,
 }: BaseComponentProps<NavbarProps>) {
-  useCloseMenuOnDesktop(alwaysShowNavMenu ? undefined : 1024);
+  const pathname = usePathname();
+
+  // normalize path: strip locale prefix like /de/, /en-US/, etc., and trailing slash
+  const normalizedPath =
+    pathname.replace(/^\/[a-z]{2}(?:-[A-Z]{2})?\//, "/").replace(/\/$/, "") ||
+    "/";
+
+  const legalPaths = ["/impressum", "/datenschutz", "/imprint", "/privacy"];
+  const forceShowNavMenu =
+    alwaysShowNavMenu || legalPaths.some((p) => normalizedPath === p);
+
+  // If you want the menu to stay available on desktop for legal pages, don't auto-close there:
+  useCloseMenuOnDesktop(forceShowNavMenu ? Number.POSITIVE_INFINITY : 1024);
+
   const { currentPage, previousPage, isDark, scrollDir } = useSwipeStore();
   const { isOpen } = useMenuStore();
-  const pathname = usePathname();
-  const isHidden = ["imprint", "privacy"].some((s) =>
-    pathname.toLowerCase().includes(s)
-  );
-  const t = useTranslations(tKey);
 
+  // If you really want to HIDE the navbar on english legal pages only, keep this;
+  // otherwise remove this whole block.
+  const isHidden = ["imprint", "privacy"].some((s) =>
+    normalizedPath.toLowerCase().includes(s)
+  );
+
+  const t = useTranslations(tKey);
   const isScrollingUp = scrollDir === "up";
 
   const shouldShow = (() => {
-    if (isHidden) {
-      return false;
-    }
+    // >>> Ensure we show navbar on legal pages
+    if (forceShowNavMenu) return true;
+
+    if (isHidden) return false;
     if (appearance === NavbarAppearance.FIXED) return true;
     if (appearance === NavbarAppearance.DEFAULT) return currentPage === 0;
 
     if (appearance === NavbarAppearance.UPWARDS_SCROLL) {
-      // show if going up, or on the first section
       return isScrollingUp || currentPage === 0 || currentPage < previousPage;
     }
     return false;
@@ -104,16 +120,33 @@ export default function Navbar({
               </Link>
             )}
             <div
-              className={cn("hidden lg:block", {
+              className={cn("hidden lg:flex gap-4", {
                 block: enableChildrenMobile,
+                "lg:hidden": forceShowNavMenu,
               })}
             >
-              {children}
+              <div>
+                {navEntriesMainConfig.map((entry) => (
+                  <Button
+                    key={entry.id}
+                    href={entry.href}
+                    size="lg"
+                    appearance="ghost"
+                    className="text-text-light"
+                  >
+                    {t(entry.titleKey)}
+                  </Button>
+                ))}
+                {children}
+                {/* <Button href="#kontakt" size="lg" appearance="primary">
+                Kontakt
+              </Button> */}
+              </div>
             </div>
             <div
               className={cn("block lg:hidden", {
                 hidden: hideNavMenu,
-                "block lg:block": alwaysShowNavMenu,
+                "block lg:block": forceShowNavMenu,
               })}
             >
               <MagneticWrapper showOutline>

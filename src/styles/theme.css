@@ -1,7 +1,7 @@
 @theme {
   /* PRIMARY COLOR (Charcoal) */
-  --color-primary: #03045e;
-  --color-primary-hover: #2e5d9f;
+  --color-primary: #723b22;
+  --color-primary-hover: #653018;
   --color-primary-pressed: #2f2f35;
   --color-primary-disabled: rgba(24, 24, 27, 0.5);
 
@@ -19,12 +19,12 @@
 
   /* LIGHT / DARK TEXT */
   --color-text-light: #ffffff;
-  --color-text-dark: #132f55;
+  --color-text-dark: #22221e;
   --color-text-muted: #797979;
 
   /* LIGHT / DARK BACKGROUND */
   --color-bg-light: #ffffff;
-  --color-bg-dark: #f0faff;
+  --color-bg-dark: #723b22;
 
   /* ERROR COLORS */
   --color-error: #b22222;
